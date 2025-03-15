@@ -6,7 +6,7 @@ import Page2 from './components/Page2';
 export default function App() {
   return (
     <>
-      <Page1 />
+      <Page1 />z
       <Background />
     </>
     // <Router>

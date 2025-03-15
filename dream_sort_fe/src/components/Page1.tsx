@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { io } from 'socket.io-client';
+const socket = io("http://localhost:3000");
 
 const Page1 = () => {
 
@@ -20,9 +22,7 @@ const Page1 = () => {
       const j = Math.floor(Math.random() * (i + 1));
       [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
-    setArr1(newArr);
-    setCnt1(cnt1 + 1);
-    setTimeout(() => setAnimating1(false), 500); 
+
   };
 
   const randomizeArray2 = () => {

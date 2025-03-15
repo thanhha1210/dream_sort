@@ -16,6 +16,7 @@
     "dream_sort": "file:",
     "lamina": "^1.1.23",
     "maath": "^0.10.8",
+    "socket.io-client": "^4.8.1",
     "motion": "^12.5.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
