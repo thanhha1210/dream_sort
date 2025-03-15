@@ -1,8 +1,22 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import { io } from 'socket.io-client';
+const socket = io("http://localhost:3000");
 const Page1 = () => {
-  const [arr, setArr] = useState([8, 5, 1, 2, 3]);
+  const [arr, setArr] = useState([]);
   const [cnt, setCnt] = useState(0);
+  
+  useEffect(() => {
+    // Listen for array updates from the server
+    socket.on("arrayUpdate", (sharedArray) => {
+      console.log("Received array update:", sharedArray);
+      setArr(sharedArray);
+    });
+    
+    // Clean up the event listener
+    return () => {
+      socket.off("arrayUpdate");
+    };
+  }, []);
 
   // Function to randomize the array
   const randomizeArray = () => {
@@ -11,6 +25,10 @@ const Page1 = () => {
       const j = Math.floor(Math.random() * (i + 1));
       [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
+    
+    socket.emit("clicked", newArr);
+    
+    // Update local state (though the server will echo back)
     setArr(newArr);
     setCnt(cnt + 1);
     if (cnt === 4) {
@@ -20,24 +38,25 @@ const Page1 = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Moving Planet Animation */}
-      
-
       {/* Content */}
       <div className="z-10 text-center">
         <h1 className="text-4xl font-bold text-white mb-8">Array Randomizer</h1>
 
         {/* Bar graph centered */}
         <div className="flex justify-center items-end space-x-2 h-96 mb-8">
-          {arr.map((value, index) => (
-            <div
-              key={index}
-              className="bg-blue-500 text-white text-center transition-all duration-300 ease-in-out"
-              style={{ width: '50px', height: `${value * 50}px` }}
-            >
-              {value}
-            </div>
-          ))}
+          {arr.length > 0 ? (
+            arr.map((value, index) => (
+              <div
+                key={index}
+                className="bg-blue-500 text-white text-center transition-all duration-300 ease-in-out"
+                style={{ width: '50px', height: `${value * 50}px` }}
+              >
+                {value}
+              </div>
+            ))
+          ) : (
+            <div className="text-white">Waiting for array data...</div>
+          )}
         </div>
 
         {/* Below the bar graph: Array and Button sections */}
@@ -47,7 +66,7 @@ const Page1 = () => {
             <h2 className="text-white text-xl">Array:</h2>
             <div className="text-white">
               {/* Adding curly brackets around the array values */}
-              {{ ...arr } && `{${arr.join(', ')}}`}
+              {`{${arr.join(', ')}}`}
             </div>
           </div>
 
