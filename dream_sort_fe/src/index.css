@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+/* Universe Background */
+.bg-universe {
+    background: radial-gradient(circle, #000428 0%, #004e92 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+  
+  /* Twinkling Stars Animation */
+  @keyframes twinkle {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 2s infinite ease-in-out;
+  }

@@ -20,11 +20,6 @@ const Page1 = () => {
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
-      {/* Moving Planet Animation */}
-      <div className="absolute w-64 h-64 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full animate-float">
-        <div className="absolute w-16 h-16 bg-gray-300 rounded-full top-1/4 left-1/4 animate-orbit"></div>
-      </div>
-
       {/* Content */}
       <div className="z-10">
         <h1 className="text-4xl font-bold text-white mb-8">Array Randomizer</h1>

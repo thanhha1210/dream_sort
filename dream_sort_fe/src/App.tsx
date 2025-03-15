@@ -1,17 +1,12 @@
-import { useState } from 'react'
-import './App.css'
 import Page1 from './components/Page1'
-import { OrbitSpace } from 'orbit-space'
-function App() {
+import Page2 from './components/Page2'
 
+export default function App() {
   return (
     <>
-    <OrbitSpace>
-    <Page1/>
-    </OrbitSpace>
-      
+      <Page1/>
+      <Page2/>
     </>
+    
   )
 }
-
-export default App
