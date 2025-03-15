@@ -6,15 +6,8 @@ import Page2 from './components/Page2';
 export default function App() {
   return (
     <>
-      <Page1 />z
+      <Page1 />
       <Background />
     </>
-    // <Router>
-    //   <Routes>
-        
-    //     <Route path="/" element={<Page1 />} />
-    //     <Route path="/page2" element={<Page2 />} />
-    //   </Routes>
-    // </Router>
   );
 }
