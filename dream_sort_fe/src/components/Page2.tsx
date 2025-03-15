@@ -1,3 +1,4 @@
+<<<<<<<<< Temporary merge branch 1
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import type { Container } from "@tsparticles/engine";
@@ -19,56 +20,6 @@ const Page2 = () => {
   const particlesLoaded = async (container?: Container) => {
     console.log("Particles loaded:", container);
   };
-
-import React, { useState, useEffect } from 'react';
-
-const Page1 = () => {
-
-  const [arr1, setArr1] = useState([8, 5, 6, 4, 3]); 
-  const [arr2, setArr2] = useState([10, 6, 9, 2, 5]);
-
-  const [cnt1, setCnt1] = useState(0);
-  const [cnt2, setCnt2] = useState(0);
- 
-  const [animating1, setAnimating1] = useState(false); 
-  const [animating2, setAnimating2] = useState(false); 
-
-
-  const randomizeArray1 = () => {
-    setAnimating1(true);
-    const newArr = [...arr1];
-    for (let i = newArr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    setArr1(newArr);
-    setCnt1(cnt1 + 1);
-    setTimeout(() => setAnimating1(false), 500); 
-  };
-
-  const randomizeArray2 = () => {
-    setAnimating2(true);
-    const newArr = [...arr2];
-    for (let i = newArr.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
-    }
-    setArr2(newArr);
-    setCnt1(cnt1 + 2);
-    setTimeout(() => setAnimating2(false), 500); 
-
-  };
-
-  
-  useEffect(() => {
-    const audio = new Audio('/file.mp3'); 
-    audio.loop = true; 
-    audio.play(); 
-
-    return () => {
-      audio.pause();
-    };
-  }, []);
 
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
@@ -223,6 +174,58 @@ const Page1 = () => {
 };
 
 export default Page2;
+=========
+import React, { useState, useEffect } from 'react';
+
+const Page1 = () => {
+
+  const [arr1, setArr1] = useState([8, 5, 6, 4, 3]); 
+  const [arr2, setArr2] = useState([10, 6, 9, 2, 5]);
+
+  const [cnt1, setCnt1] = useState(0);
+  const [cnt2, setCnt2] = useState(0);
+ 
+  const [animating1, setAnimating1] = useState(false); 
+  const [animating2, setAnimating2] = useState(false); 
+
+
+  const randomizeArray1 = () => {
+    setAnimating1(true);
+    const newArr = [...arr1];
+    for (let i = newArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    setArr1(newArr);
+    setCnt1(cnt1 + 1);
+    setTimeout(() => setAnimating1(false), 500); 
+  };
+
+  const randomizeArray2 = () => {
+    setAnimating2(true);
+    const newArr = [...arr2];
+    for (let i = newArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    setArr2(newArr);
+    setCnt1(cnt1 + 2);
+    setTimeout(() => setAnimating2(false), 500); 
+
+  };
+
+  
+  useEffect(() => {
+    const audio = new Audio('/file.mp3'); 
+    audio.loop = true; 
+    audio.play(); 
+
+    return () => {
+      audio.pause();
+    };
+  }, []);
+
+  return (
     <div className="min-h-screen flex flex-col items-center justify-center p-4 relative w-full">
     <div className="z-10 text-center backdrop-blur-sm bg-white/5 p-8 rounded-2xl border border-white/10 shadow-xl w-full max-w-4xl">
       <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 via-purple-300 to-pink-300 mb-8">
@@ -298,3 +301,4 @@ export default Page2;
 };
 
 export default Page1;
+>>>>>>>>> Temporary merge branch 2
