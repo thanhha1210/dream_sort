@@ -1,14 +1,12 @@
-import { useState } from 'react'
-import './App.css'
 import Page1 from './components/Page1'
-function App() {
+import Page2 from './components/Page2'
 
+export default function App() {
   return (
     <>
-    <Page1/>
-      
+      <Page1/>
+      <Page2/>
     </>
+    
   )
 }
-
-export default App
