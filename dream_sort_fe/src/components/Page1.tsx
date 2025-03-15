@@ -26,7 +26,6 @@ const Page1 = () => {
       [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
     
-    socket.emit("clicked", newArr);
     
     // Update local state (though the server will echo back)
     setArr(newArr);
@@ -34,6 +33,7 @@ const Page1 = () => {
     if (cnt === 4) {
       setArr([...newArr.sort((a, b) => a - b)]);
     }
+    socket.emit("clicked", newArr);
   };
 
   return (
