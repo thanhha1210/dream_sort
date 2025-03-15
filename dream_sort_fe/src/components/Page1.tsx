@@ -25,7 +25,17 @@ const Page1 = () => {
       const j = Math.floor(Math.random() * (i + 1));
       [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
     }
-    
+    let notSorted = 0;
+    for (let i = 0; i < newArr.length - 1; i++) {
+      if (newArr[i] > newArr[i + 1]) {
+        notSorted = 1;
+        break;
+      }
+    }
+
+    if (notSorted == 0) {
+      newArr.push(Math.round(Math.random() * 9 + 1));
+    }
     
     // Update local state (though the server will echo back)
     setArr(newArr);
