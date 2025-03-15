@@ -21,14 +21,14 @@ const Page1 = () => {
   return (
     <div className="min-h-screen bg-gray-900 flex flex-col items-center justify-center p-4 relative overflow-hidden">
       {/* Moving Planet Animation */}
-      <div className="absolute w-64 h-64 bg-gradient-to-br from-purple-500 to-blue-500 rounded-full animate-float">
-        <div className="absolute w-16 h-16 bg-gray-300 rounded-full top-1/4 left-1/4 animate-orbit"></div>
-      </div>
+      
 
       {/* Content */}
-      <div className="z-10">
+      <div className="z-10 text-center">
         <h1 className="text-4xl font-bold text-white mb-8">Array Randomizer</h1>
-        <div className="flex items-end space-x-2 h-96">
+
+        {/* Bar graph centered */}
+        <div className="flex justify-center items-end space-x-2 h-96 mb-8">
           {arr.map((value, index) => (
             <div
               key={index}
@@ -39,12 +39,28 @@ const Page1 = () => {
             </div>
           ))}
         </div>
-        <button
-          onClick={randomizeArray}
-          className="mt-8 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-        >
-          Randomize Array
-        </button>
+
+        {/* Below the bar graph: Array and Button sections */}
+        <div className="flex justify-between w-full mt-8">
+          {/* Array Section with Brackets */}
+          <div className="flex items-center space-x-2">
+            <h2 className="text-white text-xl">Array:</h2>
+            <div className="text-white">
+              {/* Adding curly brackets around the array values */}
+              {{ ...arr } && `{${arr.join(', ')}}`}
+            </div>
+          </div>
+
+          {/* Button Section */}
+          <div className="flex justify-end">
+            <button
+              onClick={randomizeArray}
+              className="px-8 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 shadow-lg hover:shadow-green-300 transition-shadow duration-300"
+            >
+              Randomize Array
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );
